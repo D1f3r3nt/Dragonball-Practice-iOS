@@ -10,23 +10,20 @@ class LogInViewController: UIViewController {
     }
 
     @IBAction func didTapLogin(_ sender: Any) {
-        let model = NetworkModel()
-        model.login(
+        let network = NetworkModel()
+        let home = HomeTableViewController()
+        
+        network.login(
             user: usernameTextField.text ?? "",
             password: passwordTextField.text ?? ""
         ) { result in
+            
             switch result {
-                case let .success(token):
-                    print("Token: \(token)")
-                    model.getHeroes(token: token) { result in
-                        switch result {
-                            case let .success(heroes):
-                                print("Heroes: \(heroes)")
-                            case let .failure(error):
-                                print("Error: \(error)")
-                        }
-                        
+                case .success(_):
+                    DispatchQueue.main.async {
+                        self.navigationController?.show(home, sender: nil)
                     }
+                    
                 case let .failure(error):
                     print("Error: \(error)")
             }

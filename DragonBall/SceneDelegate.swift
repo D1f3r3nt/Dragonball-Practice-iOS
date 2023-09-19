@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  DragonBall
-//
-//  Created by Marc Santisteban Ruiz on 28/8/23.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -21,14 +14,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Referencia de pantalla
         let viewController = LogInViewController()
         
+        // Referencia NavigationController
+        let navController = UINavigationController(rootViewController: viewController)
+        
         // Especificar la referencia inicial
-        window.rootViewController = viewController
+        window.rootViewController = navController
         
         // Hacer visible la referencia
         window.makeKeyAndVisible()
         self.window = window
     }
-
-
 }
-
