@@ -14,14 +14,16 @@
 		1D17F5422A9D41DF00ACBEF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D17F5402A9D41DF00ACBEF1 /* LaunchScreen.storyboard */; };
 		1D17F54B2A9D430F00ACBEF1 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17F5492A9D430F00ACBEF1 /* LogInViewController.swift */; };
 		1D17F54C2A9D430F00ACBEF1 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D17F54A2A9D430F00ACBEF1 /* LogInViewController.xib */; };
-		1D43A1D52ABA390300647B08 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43A1D32ABA390300647B08 /* HomeTableViewController.swift */; };
-		1D43A1D62ABA390300647B08 /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D43A1D42ABA390300647B08 /* HomeTableViewController.xib */; };
 		1D8A6AB42AB8C990004F0D34 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A6AB32AB8C990004F0D34 /* NetworkModel.swift */; };
 		1D8A6AB62AB8DF9A004F0D34 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A6AB52AB8DF9A004F0D34 /* Hero.swift */; };
 		1DEE1F842ABB656A00C5806B /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE1F832ABB656A00C5806B /* Transformation.swift */; };
 		1DEE1F882ABB7B3A00C5806B /* LocalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE1F872ABB7B3A00C5806B /* LocalDataModel.swift */; };
 		1DEE1F902ABB812900C5806B /* DragonBallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE1F8F2ABB812900C5806B /* DragonBallTests.swift */; };
 		1DEE1F972ABB81A300C5806B /* NetworkModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE1F962ABB81A300C5806B /* NetworkModelTests.swift */; };
+		1DEE1F9A2ABB92BA00C5806B /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE1F982ABB92BA00C5806B /* HomeTableViewController.swift */; };
+		1DEE1F9B2ABB92BA00C5806B /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEE1F992ABB92BA00C5806B /* HomeTableViewController.xib */; };
+		1DEE1F9E2ABB949C00C5806B /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE1F9C2ABB949C00C5806B /* HomeTableViewCell.swift */; };
+		1DEE1F9F2ABB949C00C5806B /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEE1F9D2ABB949C00C5806B /* HomeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +46,6 @@
 		1D17F5432A9D41DF00ACBEF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D17F5492A9D430F00ACBEF1 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		1D17F54A2A9D430F00ACBEF1 /* LogInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
-		1D43A1D32ABA390300647B08 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
-		1D43A1D42ABA390300647B08 /* HomeTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewController.xib; sourceTree = "<group>"; };
 		1D8A6AB32AB8C990004F0D34 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		1D8A6AB52AB8DF9A004F0D34 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		1DEE1F832ABB656A00C5806B /* Transformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformation.swift; sourceTree = "<group>"; };
@@ -53,6 +53,10 @@
 		1DEE1F8D2ABB812900C5806B /* DragonBallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragonBallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEE1F8F2ABB812900C5806B /* DragonBallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonBallTests.swift; sourceTree = "<group>"; };
 		1DEE1F962ABB81A300C5806B /* NetworkModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelTests.swift; sourceTree = "<group>"; };
+		1DEE1F982ABB92BA00C5806B /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		1DEE1F992ABB92BA00C5806B /* HomeTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewController.xib; sourceTree = "<group>"; };
+		1DEE1F9C2ABB949C00C5806B /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		1DEE1F9D2ABB949C00C5806B /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		1D43A1D12ABA376000647B08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1DEE1F9C2ABB949C00C5806B /* HomeTableViewCell.swift */,
+				1DEE1F9D2ABB949C00C5806B /* HomeTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,8 +141,8 @@
 		1D43A1D22ABA389000647B08 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1D43A1D32ABA390300647B08 /* HomeTableViewController.swift */,
-				1D43A1D42ABA390300647B08 /* HomeTableViewController.xib */,
+				1DEE1F982ABB92BA00C5806B /* HomeTableViewController.swift */,
+				1DEE1F992ABB92BA00C5806B /* HomeTableViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -242,9 +248,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D43A1D62ABA390300647B08 /* HomeTableViewController.xib in Resources */,
+				1DEE1F9B2ABB92BA00C5806B /* HomeTableViewController.xib in Resources */,
 				1D17F5422A9D41DF00ACBEF1 /* LaunchScreen.storyboard in Resources */,
 				1D17F53F2A9D41DF00ACBEF1 /* Assets.xcassets in Resources */,
+				1DEE1F9F2ABB949C00C5806B /* HomeTableViewCell.xib in Resources */,
 				1D17F54C2A9D430F00ACBEF1 /* LogInViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,8 +275,9 @@
 				1D17F5362A9D41DC00ACBEF1 /* AppDelegate.swift in Sources */,
 				1DEE1F882ABB7B3A00C5806B /* LocalDataModel.swift in Sources */,
 				1D8A6AB42AB8C990004F0D34 /* NetworkModel.swift in Sources */,
-				1D43A1D52ABA390300647B08 /* HomeTableViewController.swift in Sources */,
 				1D17F5382A9D41DC00ACBEF1 /* SceneDelegate.swift in Sources */,
+				1DEE1F9E2ABB949C00C5806B /* HomeTableViewCell.swift in Sources */,
+				1DEE1F9A2ABB92BA00C5806B /* HomeTableViewController.swift in Sources */,
 				1DEE1F842ABB656A00C5806B /* Transformation.swift in Sources */,
 				1D8A6AB62AB8DF9A004F0D34 /* Hero.swift in Sources */,
 			);
