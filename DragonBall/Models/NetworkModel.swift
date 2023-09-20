@@ -6,9 +6,16 @@ final class NetworkModel {
         case unknown
         case malFormedUrl
         case decodingFailed
+        case encodingFailed
         case noData
         case statusCode(code: Int?)
         case noToken
+    }
+    
+    private let session: URLSession
+    
+    init(session: URLSession = .shared) {
+        self.session = session
     }
     
     private var baseComponents: URLComponents {
@@ -18,6 +25,23 @@ final class NetworkModel {
         return components
     }
     
+    private var token: String? {
+        get {
+            if let token = LocalDataModel.getToken() {
+                return token
+            }
+            return nil
+        }
+        
+        // newValue es un valor interno
+        set {
+            if let token = newValue {
+                LocalDataModel.save(token: token)
+            }
+        }
+    }
+    
+    // MARK: - Login
     func login(
         user: String,
         password: String,
@@ -44,7 +68,7 @@ final class NetworkModel {
         request.httpMethod = "POST"
         request.setValue("Basic \(base64EncodedString)", forHTTPHeaderField: "Authorization")
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { [weak self] data, response, error in
             guard error == nil else {
                 completion(.failure(.unknown))
                 return
@@ -68,14 +92,15 @@ final class NetworkModel {
                 return
             }
             
+            self?.token = token
             completion(.success(token))
         }
         
         task.resume()
     }
     
+    // MARK: - Get Heroes
     func getHeroes(
-        token: String?,
         completion: @escaping (Result<[Hero], NetworkError>) -> Void
     ) {
         var components = baseComponents
@@ -91,31 +116,80 @@ final class NetworkModel {
             return
         }
         
-        var queryUrl = URLComponents()
-        queryUrl.queryItems = [URLQueryItem(name: "name", value: "")]
+        var bodyUrl = URLComponents()
+        bodyUrl.queryItems = [
+            URLQueryItem(name: "name", value: "")
+        ]
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.httpBody = queryUrl.query?.data(using: .utf8)
+        request.httpBody = bodyUrl.query?.data(using: .utf8)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        createTask(for: request, completion: completion, using: [Hero].self)
+    }
+    
+    // MARK: - Get Transformations
+    func getTransformations(
+        for hero: Hero,
+        completion: @escaping (Result<[Transformation], NetworkError>) -> Void
+    ) {
+        var components = baseComponents
+        components.path = "/api/heros/tranformations"
+        
+        guard let url = components.url else {
+            completion(.failure(.malFormedUrl))
+            return
+        }
+        
+        guard let token else {
+            completion(.failure(.noToken))
+            return
+        }
+        
+        var bodyUrl = URLComponents()
+        bodyUrl.queryItems = [
+            URLQueryItem(name: "id", value: hero.id)
+        ]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpBody = bodyUrl.query?.data(using: .utf8)
+        
+        
+        createTask(for: request, completion: completion, using: [Transformation].self)
+    }
+    
+    // MARK: - Global Functions
+    func createTask<T: Decodable>(
+        for request: URLRequest,
+        completion: @escaping (Result<T, NetworkError>) -> Void,
+        using type: T.Type
+    ) {
+        let task = session.dataTask(with: request) { data, response, error in
+            let result: Result<T, NetworkError>
+            
+            defer {
+                completion(result)
+            }
+            
             guard error == nil else {
-                completion(.failure(.unknown))
+                result = .failure(.unknown)
                 return
             }
             
             guard let data else {
-                completion(.failure(.noData))
+                result = .failure(.noData)
                 return
             }
             
-            guard let heroes = try? JSONDecoder().decode([Hero].self , from: data) else {
-                completion(.failure(.decodingFailed))
+            guard let resource = try? JSONDecoder().decode(type, from: data) else {
+                result = .failure(.decodingFailed)
                 return
             }
             
-            completion(.success(heroes))
+            result = .success(resource)
         }
         
         task.resume()
