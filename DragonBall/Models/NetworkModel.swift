@@ -48,6 +48,10 @@ final class NetworkModel {
         completion: @escaping (Result<String, NetworkError>) -> Void
     ) {
         
+        if (user.count == 0 || password.count == 0) {
+            return
+        }
+        
         var component = baseComponents
         component.path = "/api/auth/login"
         

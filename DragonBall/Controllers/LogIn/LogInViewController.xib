@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogInViewController" customModule="DragonBall" customModuleProvider="target">
             <connections>
+                <outlet property="buttonLogin" destination="RbU-GT-Yty" id="I9n-u9-mfM"/>
                 <outlet property="passwordTextField" destination="liv-6H-bSr" id="VYb-H3-AaU"/>
                 <outlet property="usernameTextField" destination="wQS-ZT-NeZ" id="XHP-ai-QEF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -70,6 +71,7 @@
                                     <buttonConfiguration key="configuration" style="filled" title="Log In"/>
                                     <connections>
                                         <action selector="didTapLogin:" destination="-1" eventType="touchUpInside" id="5Ow-Oj-Knl"/>
+                                        <action selector="didTouchingLogin:" destination="-1" eventType="touchDown" id="aR7-tL-ddk"/>
                                     </connections>
                                 </button>
                             </subviews>
