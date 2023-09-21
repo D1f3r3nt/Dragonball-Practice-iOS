@@ -9,7 +9,10 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Heroes"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        self.tableView.register(
+            UINib(nibName: "HomeTableViewCell", bundle: nil),
+            forCellReuseIdentifier: HomeTableViewCell.identifier
+        )
         
         network.getHeroes(completion: { [weak self] result in
             guard case let .success(hero) = result else {
@@ -48,5 +51,16 @@ extension HomeTableViewController {
         let hero = heroes[indexPath.row]
         cell.configure(with: hero)
         return cell
+    }
+}
+
+// MARK: - Delegate
+extension HomeTableViewController {
+    // On Click
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

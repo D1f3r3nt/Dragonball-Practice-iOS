@@ -23,7 +23,7 @@ class LogInViewController: UIViewController {
             switch result {
                 case .success(_):
                     DispatchQueue.main.async {
-                        self?.navigationController?.show(home, sender: nil)
+                        self?.navigationController?.setViewControllers([home], animated: true)
                     }
                     
                 case let .failure(error):
