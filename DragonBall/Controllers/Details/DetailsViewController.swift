@@ -5,18 +5,20 @@ class DetailsViewController: UIViewController {
     private var header: String
     private var desc: String
     private var photo: URL
-    private var isHero: Bool
+    private var hero: Hero?
+    private var transformations: [Transformation] = []
+    private let network = NetworkModel()
     
     init(
         title: String,
         description: String,
         photo: URL,
-        isHero: Bool
+        hero: Hero?
     ) {
         self.header = title
         self.desc = description
         self.photo = photo
-        self.isHero = isHero
+        self.hero = hero
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -33,16 +35,31 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        transformacionesButton.isHidden = true // Default
+        
         imagePrincipal.setImage(for: photo)
         titleLable.text = header
         descriptionLabel.text = desc
         title = header
         
+        if let dragonBall = hero {
+            network.getTransformations(for: dragonBall) { [weak self] result in
+                guard case let .success( transformations ) = result else {
+                    return
+                }
+                
+                self?.transformations = transformations
+                DispatchQueue.main.async {
+                    self?.transformacionesButton.isHidden = transformations.count == 0
+                }
+            }
+        }
         
     }
     
     
     @IBAction func didTapTransformations(_ sender: Any) {
+        
     }
     
 }

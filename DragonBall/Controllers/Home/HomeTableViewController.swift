@@ -68,7 +68,7 @@ extension HomeTableViewController {
             title: hero.name,
             description: hero.description,
             photo: hero.photo,
-            isHero: true
+            hero: hero
         )
         
         tableView.deselectRow(at: indexPath, animated: true)
