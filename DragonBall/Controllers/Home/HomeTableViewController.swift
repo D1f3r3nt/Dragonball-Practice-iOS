@@ -50,6 +50,7 @@ extension HomeTableViewController {
         
         let hero = heroes[indexPath.row]
         cell.configure(with: hero)
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
 }
@@ -61,6 +62,17 @@ extension HomeTableViewController {
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
+        let hero = heroes[indexPath.row]
+        
+        let details = DetailsViewController(
+            title: hero.name,
+            description: hero.description,
+            photo: hero.photo,
+            isHero: true
+        )
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.navigationController?.pushViewController( details , animated: true)
     }
 }
