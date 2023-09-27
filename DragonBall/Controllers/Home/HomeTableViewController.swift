@@ -9,6 +9,7 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Heroes"
+        navigationController?.navigationBar.prefersLargeTitles = true
         self.tableView.register(
             UINib(nibName: "HomeTableViewCell", bundle: nil),
             forCellReuseIdentifier: HomeTableViewCell.identifier

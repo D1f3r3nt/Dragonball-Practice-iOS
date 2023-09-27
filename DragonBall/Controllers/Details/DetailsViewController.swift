@@ -60,6 +60,10 @@ class DetailsViewController: UIViewController {
     
     @IBAction func didTapTransformations(_ sender: Any) {
         
+        let transformationsController =
+        TransformationsTableViewController(transformations: self.transformations)
+        
+        self.navigationController?.pushViewController(transformationsController, animated: true)
     }
     
 }
