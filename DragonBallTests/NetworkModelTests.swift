@@ -30,6 +30,7 @@ final class NetworkModelTests: XCTestCase {
         sut = nil
     }
     
+    // MARK: - Login
     func test_login() {
         let expectedToken = "Some Token"
         let someUser = "SomeUser"
@@ -73,6 +74,99 @@ final class NetworkModelTests: XCTestCase {
             }
             
             XCTAssertEqual(token, expectedToken)
+            expect.fulfill()
+        }
+        
+        wait(for: [expect], timeout: 1)
+    }
+    
+    // MARK: - Get Heroes
+    func test_get_heroes() {
+        let heroes: [Hero] = [Hero(
+            id: "A",
+            name: "Marc",
+            description: "DESC",
+            photo: URL(string: "ZZZ")!,
+            favorite: false
+        )]
+        
+        
+        MockUrlProtocol.requestHandler = { request in
+            
+            XCTAssertEqual(request.httpMethod, "POST")
+            
+            let data = try XCTUnwrap(JSONEncoder().encode(heroes))
+            let response = try XCTUnwrap(
+                HTTPURLResponse(
+                    url: URL(string: "https://dragonball.keepcoding.education")!,
+                    statusCode: 200,
+                    httpVersion: nil,
+                    headerFields: ["Content-Type": "application/json"]
+                )
+            )
+            
+            return (response, data)
+        }
+        
+        let expect = expectation(description: "GetHeroes succes")
+        
+        sut.getHeroes() { result in
+            guard case let .success(response) = result else {
+                XCTFail("X - Expected success but recived \(result)")
+                return
+            }
+            
+            XCTAssertEqual(response, heroes)
+            expect.fulfill()
+        }
+        
+        wait(for: [expect], timeout: 1)
+        
+    }
+    
+    // MARK: - Get Transformations
+    func test_get_transformations() {
+        let transformations: [Transformation] = [Transformation(
+            id: "B",
+            name: "SUPER",
+            description: "DESC",
+            photo: URL(string: "YYY")!
+        )]
+        let hero = Hero(
+            id: "A",
+            name: "Marc",
+            description: "DESC",
+            photo: URL(string: "ZZZ")!,
+            favorite: false
+        )
+        
+        
+        MockUrlProtocol.requestHandler = { request in
+            
+            XCTAssertEqual(request.httpMethod, "POST")
+            
+            let data = try XCTUnwrap(JSONEncoder().encode(transformations))
+            let response = try XCTUnwrap(
+                HTTPURLResponse(
+                    url: URL(string: "https://dragonball.keepcoding.education")!,
+                    statusCode: 200,
+                    httpVersion: nil,
+                    headerFields: ["Content-Type": "application/json"]
+                )
+            )
+            
+            return (response, data)
+        }
+        
+        let expect = expectation(description: "GetTransformations succes")
+        
+        sut.getTransformations(for: hero) { result in
+            guard case let .success(response) = result else {
+                XCTFail("X - Expected success but recived \(result)")
+                return
+            }
+            
+            XCTAssertEqual(response, transformations)
             expect.fulfill()
         }
         

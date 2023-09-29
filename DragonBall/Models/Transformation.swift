@@ -1,6 +1,6 @@
 import Foundation
 
-struct Transformation: Decodable {
+struct Transformation: Decodable, Encodable, Equatable {
     let id: String
     let name: String
     let description: String
