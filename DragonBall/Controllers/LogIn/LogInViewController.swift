@@ -29,7 +29,7 @@ class LogInViewController: UIViewController {
                     
                 case .failure(_):
                     DispatchQueue.main.async {
-                        self?.noAuthorizetAlert()
+                        self?.present(AlertModel.noAuthorizetAlert(), animated: true)
                     }
             }
         }
@@ -60,15 +60,5 @@ extension LogInViewController {
         ) { [weak self] in
             self?.buttonLogin.transform = .identity
         }
-    }
-    
-    func noAuthorizetAlert() {
-        let alert = UIAlertController(
-            title: "Not authorized",
-            message: "Your username or passowrd is not valid",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Okey", style: .cancel))
-        present(alert, animated: true)
     }
 }

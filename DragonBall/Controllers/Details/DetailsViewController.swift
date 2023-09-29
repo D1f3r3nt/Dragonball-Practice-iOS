@@ -29,7 +29,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var imagePrincipal: UIImageView!
     @IBOutlet weak var titleLable: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionTextLabel: UITextView!
     @IBOutlet weak var transformacionesButton: UIButton!
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class DetailsViewController: UIViewController {
         
         imagePrincipal.setImage(for: photo)
         titleLable.text = header
-        descriptionLabel.text = desc
+        descriptionTextLabel.text = desc
         title = header
         
         if let dragonBall = hero {

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="DragonBall" customModuleProvider="target">
             <connections>
-                <outlet property="descriptionLabel" destination="fTI-8v-fT1" id="OaB-cR-CB8"/>
+                <outlet property="descriptionTextLabel" destination="FFZ-rP-5ip" id="5mQ-CF-3ip"/>
                 <outlet property="imagePrincipal" destination="T8q-qS-lL2" id="FNW-gz-bMJ"/>
                 <outlet property="titleLable" destination="qMs-he-11L" id="Bjb-NX-4Cs"/>
                 <outlet property="transformacionesButton" destination="cRa-GM-FBk" id="P52-0C-C4g"/>
@@ -29,7 +29,7 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="eTF-gd-Qh2">
-                    <rect key="frame" x="12" y="280.66666666666669" width="369" height="72.333333333333314"/>
+                    <rect key="frame" x="12" y="280.66666666666674" width="369" height="451.33333333333326"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMs-he-11L" userLabel="Name">
                             <rect key="frame" x="0.0" y="0.0" width="369" height="40"/>
@@ -40,15 +40,13 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-8v-fT1" userLabel="Description">
-                            <rect key="frame" x="0.0" y="52" width="369" height="20.333333333333329"/>
-                            <constraints>
-                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="380" id="uLW-ek-RqY"/>
-                            </constraints>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFZ-rP-5ip" userLabel="Description">
+                            <rect key="frame" x="0.0" y="52" width="369" height="399.33333333333331"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="textColor" systemColor="labelColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRa-GM-FBk">
@@ -57,7 +55,7 @@
                         <constraint firstAttribute="height" constant="50" id="ShK-33-fTy"/>
                     </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="Transformaciones">
+                    <buttonConfiguration key="configuration" style="filled" title="Transformations">
                         <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
                     </buttonConfiguration>
                     <connections>
@@ -68,6 +66,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="cRa-GM-FBk" firstAttribute="top" secondItem="eTF-gd-Qh2" secondAttribute="bottom" constant="24" id="Dc0-xA-5Mo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cRa-GM-FBk" secondAttribute="bottom" constant="12" id="ISV-xc-Uxi"/>
                 <constraint firstItem="cRa-GM-FBk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="Tsr-CF-7Kn"/>
                 <constraint firstItem="eTF-gd-Qh2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="inX-Ld-Fqs"/>
@@ -82,6 +81,9 @@
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

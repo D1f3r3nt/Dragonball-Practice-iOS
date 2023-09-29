@@ -78,18 +78,28 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dragonball_icon" translatesAutoresizingMaskIntoConstraints="NO" id="B5A-Ui-o36">
+                    <rect key="frame" x="156.66666666666666" y="83" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="Oc1-wp-gMp"/>
+                        <constraint firstAttribute="height" constant="80" id="w6z-yB-NbJ"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wPW-x5-910" secondAttribute="trailing" constant="12" id="HGA-q4-Ckk"/>
+                <constraint firstItem="B5A-Ui-o36" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KBz-O3-uSD"/>
                 <constraint firstItem="wPW-x5-910" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="L0Z-zY-Jl4"/>
                 <constraint firstItem="wPW-x5-910" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="TKM-AU-6Jg"/>
+                <constraint firstItem="B5A-Ui-o36" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="nVh-S5-9cn"/>
             </constraints>
             <point key="canvasLocation" x="132" y="-11"/>
         </view>
     </objects>
     <resources>
+        <image name="dragonball_icon" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

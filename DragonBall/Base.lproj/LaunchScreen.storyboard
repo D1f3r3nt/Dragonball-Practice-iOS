@@ -16,27 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DragonBall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ie4-vW-r5r">
-                                <rect key="frame" x="12" y="408" width="369" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by Diferent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjU-in-KMB">
                                 <rect key="frame" x="12" y="757" width="369" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dragonball_icon" translatesAutoresizingMaskIntoConstraints="NO" id="L2u-XU-uok">
+                                <rect key="frame" x="76.666666666666686" y="306" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="1O5-tD-ad0"/>
+                                    <constraint firstAttribute="height" constant="240" id="nWB-dH-PCC"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ie4-vW-r5r" secondAttribute="trailing" constant="12" id="GLd-3S-UQM"/>
-                            <constraint firstItem="ie4-vW-r5r" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Iyk-ci-R2O"/>
+                            <constraint firstItem="L2u-XU-uok" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9kR-Xh-yM8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bjU-in-KMB" secondAttribute="trailing" constant="12" id="Jpp-i9-zPE"/>
+                            <constraint firstItem="L2u-XU-uok" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gMg-PH-Eql"/>
                             <constraint firstItem="bjU-in-KMB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="gNX-CT-nlr"/>
-                            <constraint firstItem="ie4-vW-r5r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="gqP-Pb-iSH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bjU-in-KMB" secondAttribute="bottom" constant="40" id="wDl-Pp-Ucb"/>
                         </constraints>
                     </view>
@@ -47,6 +47,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dragonball_icon" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
